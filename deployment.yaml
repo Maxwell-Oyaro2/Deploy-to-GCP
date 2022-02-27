@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+       - image: oyaro/prod-app:latest
+         name: hello
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
+         resources:
+           requests:
+            memory: "500Mi"
+            cpu: "250m"
+           limits:
+            memory: "1000Mi"
+            cpu: "500m"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-service
+  labels:
+    app: hello
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: hello
+  type: LoadBalancer
+
