@@ -16,7 +16,7 @@ pipeline {
     
     stage('Checkout') {
       steps{
-        
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Maxwell-Oyaro2/Deploy-to-GCP.git']]])
       }
     }
 
