@@ -6,7 +6,7 @@ pipeline {
     PROJECT_ID = 'upwork-project-001'
     CLUSTER_NAME_TEST = 'upwork-project1-test-cluster'
     CLUSTER_NAME_PROD = 'upwork-project1-prod-cluster'
-    LOCATION = 'us-central1-c'
+    LOCATION = 'us-east1-b'
     CREDENTIALS_ID = 'upwork-project-001'
   }
 
